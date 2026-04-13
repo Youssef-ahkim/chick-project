@@ -173,7 +173,10 @@ export default function Home() {
                   Shop Our Products
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-2xl transition-all border border-white/30">
+                <button 
+                  className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-2xl transition-all border border-white/30"
+                  style={{ WebkitBackdropFilter: 'blur(12px)', transform: 'translateZ(0)' }}
+                >
                   Our Story
                 </button>
               </div>
@@ -257,7 +260,10 @@ export default function Home() {
                   <div className="aspect-[3/4] bg-emerald-950 rounded-[2.5rem] p-12 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl">
                     <div className="absolute -right-20 -top-20 w-80 h-80 bg-emerald-700/20 rounded-full blur-[100px] group-hover:scale-150 transition-transform duration-1000" />
                     <div className="space-y-8 relative z-10">
-                      <div className="w-20 h-20 bg-white/5 backdrop-blur-xl rounded-[2rem] flex items-center justify-center border border-white/10">
+                      <div 
+                        className="w-20 h-20 bg-white/5 backdrop-blur-xl rounded-[2rem] flex items-center justify-center border border-white/10"
+                        style={{ WebkitBackdropFilter: 'blur(24px)', transform: 'translateZ(0)' }}
+                      >
                         <ShieldCheck className="w-10 h-10 text-orange-500" />
                       </div>
                       <h3 className="text-5xl font-black leading-[0.9] tracking-tighter">QUALITY <br /> GUARANTEED.</h3>
