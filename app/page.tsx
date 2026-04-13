@@ -100,7 +100,7 @@ export default function Home() {
               <span className="text-orange-500">Can Trust.</span>
             </h1>
             <p className="text-xl text-orange-50/90 leading-relaxed max-w-lg">
-              Experience the taste of Tahanaout's finest organic poultry and pasture-raised eggs. Delivered straight from our farm to your kitchen.
+              Experience the taste of Tahanaout&apos;s finest organic poultry and pasture-raised eggs. Delivered straight from our farm to your kitchen.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <button className="btn-primary flex items-center gap-2 group">
@@ -120,7 +120,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900">Today's <span className="text-orange-600">Fresh Picks</span></h2>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900">Today&apos;s <span className="text-orange-600">Fresh Picks</span></h2>
               <p className="text-slate-600 max-w-md text-lg">Hand-selected, organic, and prepared specifically for your order today.</p>
             </div>
             <button className="text-orange-700 font-bold flex items-center gap-2 group border-b-2 border-orange-200 pb-1">
@@ -189,7 +189,7 @@ export default function Home() {
                   <h3 className="text-4xl font-black leading-tight">Tested for Quality, <br /> Loved for Taste.</h3>
                 </div>
                 <div className="relative z-10 mt-auto">
-                  <p className="text-emerald-100/70 mb-8 italic">"We ensure every single product meets the highest standards of safety and freshness before it leaves our farm in Tahanaout."</p>
+                  <p className="text-emerald-100/70 mb-8 italic">&quot;We ensure every single product meets the highest standards of safety and freshness before it leaves our farm in Tahanaout.&quot;</p>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full border-2 border-orange-500 p-0.5 overflow-hidden relative">
                       <Image src="/manager.png" alt="Rachid lachgar" fill className="object-cover rounded-full" />
@@ -238,7 +238,7 @@ export default function Home() {
             <div className="space-y-12">
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">The <span className="text-orange-600">Pure Tradition</span> of Tahanaout</h2>
-                <p className="text-lg text-slate-600">Our farm is more than just a business; it's a commitment to our community and the environment. We believe in transparency and ethics at every step.</p>
+                <p className="text-lg text-slate-600">Our farm is more than just a business; it&apos;s a commitment to our community and the environment. We believe in transparency and ethics at every step.</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -247,7 +247,7 @@ export default function Home() {
                     <Leaf className="w-7 h-7 text-orange-600" />
                   </div>
                   <h4 className="text-xl font-bold">100% Organic</h4>
-                  <p className="text-slate-500">No antibiotics, no growth hormones. Just nature's best for your family.</p>
+                  <p className="text-slate-500">No antibiotics, no growth hormones. Just nature&apos;s best for your family.</p>
                 </div>
 
                 <div className="feature-item space-y-4">
