@@ -132,7 +132,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main ref={containerRef} className="bg-white min-h-screen relative overflow-hidden">
+    <main ref={containerRef} className="bg-white min-h-screen relative overflow-x-hidden">
 
         
 
@@ -154,7 +154,7 @@ export default function Home() {
 
           </div>
 
-          <div className="container mx-auto px-10 lg:px-20 relative z-10 pt-20">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-20">
 
             <div className="max-w-3xl hero-content space-y-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-orange-200 text-sm font-semibold uppercase tracking-widest">
@@ -192,7 +192,7 @@ export default function Home() {
         <section ref={productsRef} className="py-32 bg-slate-50 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1/2 bg-white -translate-y-full reveal-section" />
           
-          <div className="container mx-auto px-10 relative z-10">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
               <div className="space-y-4">
                 <h2 className="text-5xl md:text-7xl font-black text-slate-950 tracking-tighter uppercase whitespace-pre-wrap">Daily <br /><span className="text-orange-600 italic leading-none">Fresh picks</span></h2>
@@ -290,7 +290,7 @@ export default function Home() {
         {/* Features Section */}
         <section ref={featuredRef} className="py-40 bg-white relative overflow-hidden">
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-slate-100 -z-0" />
-          <div className="container mx-auto px-10">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
               <div className="relative">
                 <div className="absolute -left-20 -top-20 w-96 h-96 bg-orange-100/50 rounded-full blur-[120px] -z-10" />
@@ -377,7 +377,7 @@ export default function Home() {
 
         {/* Footer / CTA Section */}
         <footer className="bg-slate-950 text-white py-40 relative overflow-hidden">
-          <div className="container mx-auto px-10 relative z-10">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
             <div className="max-w-5xl mx-auto text-center space-y-16">
               <h2 className="text-7xl md:text-[10rem] font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-wrap">Real food <br /><span className="text-orange-500 italic">Today.</span></h2>
               <p className="text-2xl text-slate-400 font-medium max-w-2xl mx-auto">Join our weekly delivery list and get the freshest poultry in Tahanaout delivered to your door every Friday.</p>
