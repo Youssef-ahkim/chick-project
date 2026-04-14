@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 :root {
-  /* Warm Premium Palette */
-  --background: 40 40% 98%;
-  --foreground: 20 30% 5%;
-  --primary: 38 92% 50%;
-  --primary-foreground: 45 100% 98%;
-  --secondary: 155 60% 15%;
+  /* Ultra-Premium Clean Palette */
+  --background: 0 0% 100%;
+  --foreground: 220 20% 10%;
+  --primary: 25 95% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 160 50% 10%;
   --secondary-foreground: 45 100% 98%;
-  --accent: 38 92% 50%;
+  --accent: 25 95% 45%;
   --accent-foreground: 20 20% 10%;
   --card: 0 0% 100%;
-  --card-foreground: 20 30% 5%;
-  --border: 20 20% 92%;
-  --noise-opacity: 0.035;
+  --card-foreground: 220 20% 10%;
+  --border: 220 15% 94%;
+  --noise-opacity: 0.012; /* Much more subtle */
 }
 
 html {
@@ -25,47 +25,27 @@ html {
 
 @layer base {
   body {
-    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    @apply bg-white text-slate-900;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-    font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-white/80 backdrop-blur-xl border border-white/40 shadow-2xl;
+    @apply bg-white/70 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.03)];
     -webkit-backdrop-filter: blur(24px);
     transform: translateZ(0);
   }
 
   .btn-primary {
-    @apply px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg hover:shadow-orange-200/50 hover:-translate-y-1 active:scale-95;
-  }
-
-  .btn-secondary {
-    @apply px-8 py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg hover:shadow-emerald-200/50 hover:-translate-y-1 active:scale-95;
+    @apply px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-2xl transition-all duration-500 shadow-xl shadow-orange-200/50 hover:-translate-y-1 active:scale-95 text-sm uppercase tracking-widest;
   }
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-yellow-500;
-}
-
-/* Premium Background Effects */
 .noise-bg {
   position: fixed;
   top: 0;
@@ -75,15 +55,13 @@ html {
   pointer-events: none;
   z-index: 100;
   opacity: var(--noise-opacity);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  /* Smoother fractal noise */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .blob-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   overflow: hidden;
   z-index: -1;
   pointer-events: none;
@@ -91,15 +69,19 @@ html {
 
 .blob {
   position: absolute;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(circle, rgba(251, 146, 60, 0.1) 0%, rgba(251, 146, 60, 0) 70%);
-  filter: blur(80px);
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.08) 0%, rgba(251, 146, 60, 0) 70%);
+  filter: blur(100px);
   border-radius: 50%;
-  animation: blob-move 20s infinite alternate;
+  animation: blob-move 25s infinite alternate ease-in-out;
 }
 
 @keyframes blob-move {
-  from { transform: translate(-10%, -10%); }
-  to { transform: translate(10%, 10%); }
+  from { transform: translate(-20%, -20%) rotate(0deg); }
+  to { transform: translate(20%, 20%) rotate(180deg); }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-orange-400;
 }

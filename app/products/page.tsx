@@ -151,12 +151,12 @@ export default function ProductsPage() {
             <span className="w-2 h-2 bg-orange-600 rounded-full animate-pulse" />
             Direct from Tahanaout Farm
           </div>
-          <h1 className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter uppercase leading-[0.9]">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 tracking-tight uppercase leading-none">
             OUR <br />
             <span className="text-orange-600 italic">Freshness.</span>
           </h1>
-          <p className="text-xl text-slate-500 max-w-xl font-medium leading-relaxed">
-            From pasture-raised eggs to hormone-free organic chicken, explore our premium collection of farm-to-table products.
+          <p className="text-lg md:text-xl text-slate-500 max-w-lg font-medium leading-relaxed">
+            From pasture-raised eggs to hormone-free organic chicken, explore our premium collection of farm-to-table products from the heart of Tahanaout.
           </p>
         </div>
 
