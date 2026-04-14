@@ -169,10 +169,10 @@ export default function Home() {
                 Experience the taste of Tahanaout&apos;s finest organic poultry and pasture-raised eggs. Delivered straight from our farm to your kitchen.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
-                <button className="btn-primary flex items-center gap-2 group">
+                <Link href="/products" className="btn-primary flex items-center gap-2 group">
                   Shop Our Products
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
                 <button 
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-2xl transition-all border border-white/30"
                   style={{ WebkitBackdropFilter: 'blur(12px)', transform: 'translateZ(0)' }}
@@ -198,10 +198,10 @@ export default function Home() {
                 <h2 className="text-5xl md:text-7xl font-black text-slate-950 tracking-tighter uppercase whitespace-pre-wrap">Daily <br /><span className="text-orange-600 italic leading-none">Fresh picks</span></h2>
                 <p className="text-slate-500 max-w-sm text-lg font-medium">Hand-selected, organic, and prepared specifically for your order today.</p>
               </div>
-              <button className="text-orange-700 font-bold flex items-center gap-2 group border-b-2 border-orange-200 pb-2 transition-all hover:border-orange-600">
+              <Link href="/products" className="text-orange-700 font-bold flex items-center gap-2 group border-b-2 border-orange-200 pb-2 transition-all hover:border-orange-600">
                 View All Products
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">

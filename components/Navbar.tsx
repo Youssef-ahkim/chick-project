@@ -15,18 +15,19 @@ function Navbar() {
                     </div>
 
                     <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-                        <Link href="#" className="hover:text-orange-600 transition-colors">Products</Link>
-                        <Link href="#" className="hover:text-orange-600 transition-colors">Farm Story</Link>
-                        <Link href="#" className="hover:text-orange-600 transition-colors">Quality</Link>
-                        <Link href="#" className="hover:text-orange-600 transition-colors">Contact</Link>
+                        <Link href="/products" className="hover:text-orange-600 transition-colors">Products</Link>
+                        <Link href="/farm-story" className="hover:text-orange-600 transition-colors">Farm Story</Link>
+                        <Link href="/quality" className="hover:text-orange-600 transition-colors">Quality</Link>
+                        <Link href="/contact" className="hover:text-orange-600 transition-colors">Contact</Link>
                     </div>
 
-                    <button
+                    <Link
+                        href="/products"
                         className="bg-slate-900 text-white px-6 py-2.5 rounded-2xl font-semibold text-sm hover:bg-slate-800 transition-all hover:shadow-lg active:scale-95"
                         aria-label="Order Now"
                     >
                         Order Now
-                    </button>
+                    </Link>
                 </div>
             </nav>
         </header>
