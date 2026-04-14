@@ -28,6 +28,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.className} antialiased`}
       >
+        <div className="noise-bg" />
+        <div className="blob-container">
+          <div className="blob" style={{ top: '-10%', left: '-10%' }} />
+          <div className="blob" style={{ bottom: '-10%', right: '-10%', background: 'radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0) 70%)' }} />
+        </div>
 
         <Navbar />
         {children}
