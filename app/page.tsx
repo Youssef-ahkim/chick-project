@@ -13,11 +13,10 @@ if (typeof window !== 'undefined') {
 }
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const heroRef = useRef(null);
-  const productsRef = useRef(null);
-  const featuredRef = useRef(null);
-  const bgRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const productsRef = useRef<HTMLElement>(null);
+  const featuredRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // 1. Initialize Lenis Smooth Scroll
@@ -38,7 +37,7 @@ export default function Home() {
     requestAnimationFrame(raf);
 
     const ctx = gsap.context(() => {
-      // 2. Hero Content Animations - Faster
+      // 2. Hero Content Animations
       const heroTl = gsap.timeline();
       heroTl.from(".hero-content > *", {
         y: 60,
@@ -49,7 +48,7 @@ export default function Home() {
         delay: 0.3
       });
 
-      // 3. Parallax Hero Background - Reduced intensity
+      // 3. Parallax Hero Background
       gsap.to(".hero-image", {
         scrollTrigger: {
           trigger: heroRef.current,
@@ -61,7 +60,7 @@ export default function Home() {
         ease: "none"
       });
 
-      // 4. Reveal Animation for Sections - Changed from clipPath to simple Fade/Lift
+      // 4. Reveal Animation for Sections
       gsap.from(".reveal-section", {
         scrollTrigger: {
           trigger: ".reveal-section",
@@ -73,7 +72,7 @@ export default function Home() {
         ease: "power2.out"
       });
 
-      // 5. Product Cards Staggered Entry - Simplified
+      // 5. Product Cards Staggered Entry
       gsap.from(".product-card", {
         scrollTrigger: {
           trigger: productsRef.current,
@@ -86,7 +85,7 @@ export default function Home() {
         ease: "power2.out"
       });
 
-      // 6. Floating elements parallax - Reduced
+      // 6. Floating elements parallax
       gsap.to(".floating-card", {
         scrollTrigger: {
           trigger: featuredRef.current,
@@ -98,7 +97,7 @@ export default function Home() {
         ease: "none"
       });
 
-      // 7. Feature Items Slide In - Simplified
+      // 7. Feature Items Slide In
       gsap.from(".feature-item", {
         scrollTrigger: {
           trigger: featuredRef.current,
@@ -111,7 +110,7 @@ export default function Home() {
         ease: "power2.out"
       });
 
-      // 8. Quality Section Highlight - Simple scale
+      // 8. Quality Section Highlight
       gsap.from(".quality-card", {
         scrollTrigger: {
           trigger: ".quality-card",
@@ -122,7 +121,7 @@ export default function Home() {
         duration: 0.8,
         ease: "power2.out"
       });
-    }, [containerRef]);
+    }, containerRef);
 
     return () => {
       ctx.revert();
@@ -133,11 +132,8 @@ export default function Home() {
   return (
     <main ref={containerRef} className="bg-white min-h-screen relative overflow-x-hidden">
 
-
-
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden bg-slate-900">
-
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero.png"
@@ -149,12 +145,10 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-slate-950/20" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent" />
-
-
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-transparent to-transparent" />
         </div>
 
-        <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-20">
-
+        <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-32 md:pt-40">
           <div className="max-w-3xl hero-content space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-orange-200 text-sm font-semibold uppercase tracking-widest">
               <Star className="w-4 h-4 fill-orange-400 text-orange-400" />
@@ -162,7 +156,7 @@ export default function Home() {
             </div>
             <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter uppercase">
               FRESH <br />
-              <span className="text-orange-500 italic">Poultry.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-400 italic">Poultry.</span>
             </h1>
             <p className="text-lg md:text-xl text-orange-50/80 leading-relaxed max-w-lg">
               Experience the taste of Tahanaout&apos;s finest organic poultry and pasture-raised eggs. Delivered straight from our farm to your kitchen.
@@ -174,23 +168,17 @@ export default function Home() {
               </Link>
               <button
                 className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-2xl transition-all border border-white/30"
-                style={{ WebkitBackdropFilter: 'blur(12px)', transform: 'translateZ(0)' }}
+                style={{ transform: 'translateZ(0)' }}
               >
                 Our Story
               </button>
             </div>
           </div>
         </div>
-
-
-
-
       </section>
 
       {/* Featured Products Grid */}
-      <section ref={productsRef} className="py-32 bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-white -translate-y-full reveal-section" />
-
+      <section ref={productsRef} className="py-32 bg-slate-50 relative overflow-hidden reveal-section">
         <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="space-y-4">
@@ -207,6 +195,7 @@ export default function Home() {
             {/* Product Card 1 */}
             <div className="product-card group cursor-pointer">
               <div className="aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-xl transition-all duration-700 group-hover:shadow-3xl group-hover:-translate-y-4 group-hover:rotate-1">
+                <div className="absolute inset-0 bg-slate-200 animate-pulse" />
                 <Image
                   src="/chicken.png"
                   alt="Organic Whole Chicken"
@@ -215,7 +204,7 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute top-8 left-8">
-                  <span className="bg-emerald-600 text-white px-5 py-2 rounded-2xl text-xs font-black uppercase tracking-widest shadow-lg">Organic</span>
+                  <span className="bg-emerald-600 text-white px-5 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-lg">Organic</span>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-10 opacity-80 group-hover:opacity-100 transition-opacity">
                   <h3 className="text-3xl font-black text-white mb-2 tracking-tight">Whole Chicken</h3>
@@ -232,6 +221,7 @@ export default function Home() {
             {/* Product Card 2 */}
             <div className="product-card group cursor-pointer">
               <div className="aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-xl transition-all duration-700 group-hover:shadow-3xl group-hover:-translate-y-4 group-hover:-rotate-1">
+                <div className="absolute inset-0 bg-slate-200 animate-pulse" />
                 <Image
                   src="/eggs.png"
                   alt="Pasture-Raised Brown Eggs"
@@ -240,7 +230,7 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute top-8 left-8">
-                  <span className="bg-orange-600 text-white px-5 py-2 rounded-2xl text-xs font-black uppercase tracking-widest shadow-lg">Daily Fresh</span>
+                  <span className="bg-orange-600 text-white px-5 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-lg">Daily Fresh</span>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-10 opacity-80 group-hover:opacity-100 transition-opacity">
                   <h3 className="text-3xl font-black text-white mb-2 tracking-tight">Brown Eggs</h3>
@@ -254,14 +244,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Professional Section */}
+            {/* Quality Section Highlight */}
             <div className="quality-card lg:block hidden">
               <div className="aspect-[3/4] bg-emerald-950 rounded-[2.5rem] p-12 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl">
                 <div className="absolute -right-20 -top-20 w-80 h-80 bg-emerald-700/20 rounded-full blur-[100px] group-hover:scale-150 transition-transform duration-1000" />
                 <div className="space-y-8 relative z-10">
                   <div
                     className="w-20 h-20 bg-white/5 backdrop-blur-xl rounded-[2rem] flex items-center justify-center border border-white/10"
-                    style={{ WebkitBackdropFilter: 'blur(24px)', transform: 'translateZ(0)' }}
+                    style={{ transform: 'translateZ(0)' }}
                   >
                     <ShieldCheck className="w-10 h-10 text-orange-500" />
                   </div>
@@ -272,7 +262,6 @@ export default function Home() {
                   <div className="flex items-center gap-5">
                     <div className="w-14 h-14 rounded-2xl border-2 border-orange-500 p-0.5 overflow-hidden relative shadow-lg">
                       <Image src="/manager.png" alt="Rachid lachgar" fill className="object-cover" sizes="56px" />
-
                     </div>
                     <div>
                       <p className="font-bold text-lg text-white">Rachid lachgar</p>
@@ -287,12 +276,11 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section ref={featuredRef} className="py-40 bg-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-slate-100 -z-0" />
-        <div className="container mx-auto px-6 md:px-12 lg:px-16">
+      <section ref={featuredRef} className="py-40 bg-white relative overflow-hidden px-6 md:px-12 lg:px-16 reveal-section">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             <div className="relative">
-              <div className="absolute -left-20 -top-20 w-96 h-96 bg-orange-100/50 rounded-full blur-[120px] -z-10" />
+              <div className="absolute -left-20 -top-20 w-96 h-96 bg-orange-100/40 rounded-full blur-[120px] -z-10" />
               <div className="relative aspect-square rounded-[4rem] overflow-hidden shadow-4xl border-[16px] border-slate-50">
                 <Image
                   src="/hero.png"
@@ -301,15 +289,13 @@ export default function Home() {
                   className="object-cover scale-110"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-
               </div>
-              <div className="absolute -bottom-16 -right-5 bg-white p-10 rounded-[3rem] shadow-4xl max-w-xs border border-slate-100 floating-card">
+              <div className="absolute -bottom-16 -right-5 bg-white p-10 rounded-[3rem] shadow-4xl max-w-xs border border-slate-100 floating-card hidden md:block">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="flex -space-x-5">
                     {['/p1.png', '/p2.png', '/p3.png'].map((src, i) => (
                       <div key={i} className="w-14 h-14 rounded-full border-4 border-white bg-slate-200 relative overflow-hidden shadow-lg">
-                        <Image src={src} alt={`Happy Customer ${i + 1}`} fill className="object-cover" sizes="56px" />
-
+                        <Image src={src} alt="Customer" fill className="object-cover" sizes="56px" />
                       </div>
                     ))}
                   </div>
@@ -324,50 +310,27 @@ export default function Home() {
 
             <div className="space-y-16">
               <div className="space-y-6">
-                <h2 className="text-6xl md:text-8xl font-black text-slate-950 leading-[0.85] tracking-tighter uppercase">THE PURE <br /><span className="text-orange-600 italic leading-none">TRADITION</span></h2>
+                <h2 className="text-6xl md:text-8xl font-black text-slate-950 leading-[0.85] tracking-tighter uppercase pr-10">THE PURE <br /><span className="text-orange-600 italic leading-none">TRADITION</span></h2>
                 <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-xl">Our farm is a commitment to our community and the environment. We believe in transparency and ethics at every single step.</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
-                <div className="feature-item space-y-6 group">
-                  <div className="w-20 h-20 bg-orange-50 rounded-3xl flex items-center justify-center transition-all group-hover:bg-orange-600 group-hover:shadow-2xl group-hover:-translate-y-2">
-                    <Leaf className="w-10 h-10 text-orange-600 group-hover:text-white transition-colors" />
+                {[
+                  { icon: <Leaf />, color: 'bg-orange-50', text: 'text-orange-600', title: '100% Organic', desc: 'No antibiotics, no growth hormones. Just nature\'s best.' },
+                  { icon: <Truck />, color: 'bg-emerald-50', text: 'text-emerald-600', title: 'Quick Delivery', desc: 'Harvested in the morning, on your doorstep by dinner.' },
+                  { icon: <ShieldCheck />, color: 'bg-orange-50', text: 'text-orange-600', title: 'Safe & Clean', desc: 'Rigorous sanitation and handling standards at every stage.' },
+                  { icon: <ShoppingCart />, color: 'bg-emerald-50', text: 'text-emerald-600', title: 'Fair Pricing', desc: 'Premium quality at prices that honor farmer and customer.' },
+                ].map((item, i) => (
+                  <div key={i} className="feature-item space-y-6 group">
+                    <div className={`w-20 h-20 ${item.color} rounded-3xl flex items-center justify-center transition-all group-hover:scale-110`}>
+                      <div className={item.text}>{item.icon}</div>
+                    </div>
+                    <div>
+                      <h4 className="text-2xl font-black text-slate-900 tracking-tight">{item.title}</h4>
+                      <p className="text-slate-500 font-medium mt-2">{item.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-2xl font-black text-slate-900 tracking-tight">100% Organic</h4>
-                    <p className="text-slate-500 font-medium mt-2">No antibiotics, no growth hormones. Just nature&apos;s best.</p>
-                  </div>
-                </div>
-
-                <div className="feature-item space-y-6 group">
-                  <div className="w-20 h-20 bg-emerald-50 rounded-3xl flex items-center justify-center transition-all group-hover:bg-emerald-600 group-hover:shadow-2xl group-hover:-translate-y-2">
-                    <Truck className="w-10 h-10 text-emerald-600 group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-black text-slate-900 tracking-tight">Quick Delivery</h4>
-                    <p className="text-slate-500 font-medium mt-2">Harvested in the morning, on your doorstep by dinner.</p>
-                  </div>
-                </div>
-
-                <div className="feature-item space-y-6 group">
-                  <div className="w-20 h-20 bg-orange-50 rounded-3xl flex items-center justify-center transition-all group-hover:bg-orange-600 group-hover:shadow-2xl group-hover:-translate-y-2">
-                    <ShieldCheck className="w-10 h-10 text-orange-600 group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-black text-slate-900 tracking-tight">Safe & Clean</h4>
-                    <p className="text-slate-500 font-medium mt-2">Rigorous sanitation and handling standards at every stage.</p>
-                  </div>
-                </div>
-
-                <div className="feature-item space-y-6 group">
-                  <div className="w-20 h-20 bg-emerald-50 rounded-3xl flex items-center justify-center transition-all group-hover:bg-emerald-600 group-hover:shadow-2xl group-hover:-translate-y-2">
-                    <ShoppingCart className="w-10 h-10 text-emerald-600 group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-black text-slate-900 tracking-tight">Fair Pricing</h4>
-                    <p className="text-slate-500 font-medium mt-2">Premium quality at prices that honor farmer and customer.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -375,50 +338,41 @@ export default function Home() {
       </section>
 
       {/* Footer / CTA Section */}
-      <footer className="bg-slate-950 text-white py-40 relative overflow-hidden">
-        <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-          <div className="max-w-5xl mx-auto text-center space-y-16">
-            <h2 className="text-7xl md:text-[10rem] font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-wrap">Real food <br /><span className="text-orange-500 italic">Today.</span></h2>
-            <p className="text-2xl text-slate-400 font-medium max-w-2xl mx-auto">Join our weekly delivery list and get the freshest poultry in Tahanaout delivered to your door every Friday.</p>
-            <div className="flex flex-col sm:flex-row gap-6 items-center justify-center pt-10">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full sm:w-96 px-10 py-6 rounded-3xl bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-600 text-white text-lg transition-all"
-              />
-              <button className="w-full sm:w-auto px-12 py-6 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-3xl transition-all shadow-3xl hover:-translate-y-1 active:scale-95 text-lg uppercase tracking-widest">Join now</button>
-            </div>
+      <footer className="bg-slate-950 text-white py-40 relative overflow-hidden px-6 md:px-12 lg:px-16">
+        <div className="max-w-7xl mx-auto relative z-10 text-center space-y-16">
+          <h2 className="text-7xl md:text-[10rem] font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-wrap">Real food <br /><span className="text-orange-500 italic">Today.</span></h2>
+          <p className="text-2xl text-slate-400 font-medium max-w-2xl mx-auto">Join our weekly delivery list and get the freshest poultry in Tahanaout delivered to your door every Friday.</p>
+          <div className="flex flex-col sm:flex-row gap-6 items-center justify-center pt-10">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full sm:w-96 px-10 py-6 rounded-3xl bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-600 text-white text-lg transition-all"
+            />
+            <button className="btn-primary w-full sm:w-auto px-12 py-6 text-lg uppercase tracking-widest">Join now</button>
           </div>
 
           <div className="mt-40 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-orange-600 rounded-2xl flex items-center justify-center shadow-2xl">
+              <div className="w-12 h-12 bg-orange-600 rounded-2xl flex items-center justify-center">
                 <span className="text-white font-black text-2xl">T</span>
               </div>
               <span className="font-black tracking-tighter text-2xl uppercase">Tahanaout Poultry</span>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-10 text-slate-500 font-bold uppercase tracking-widest text-xs">
-              <Link href="#" className="hover:text-white transition-colors underline decoration-orange-600/0 hover:decoration-orange-600 decoration-2 underline-offset-8">Privacy</Link>
-              <Link href="#" className="hover:text-white transition-colors underline decoration-orange-600/0 hover:decoration-orange-600 decoration-2 underline-offset-8">Terms</Link>
-              <Link href="#" className="hover:text-white transition-colors underline decoration-orange-600/0 hover:decoration-orange-600 decoration-2 underline-offset-8">Wholesale</Link>
+            <div className="flex flex-wrap justify-center gap-10 text-slate-500 font-bold uppercase tracking-widest text-[10px]">
+              <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
+              <Link href="#" className="hover:text-white transition-colors">Terms</Link>
+              <Link href="#" className="hover:text-white transition-colors">Wholesale</Link>
             </div>
 
             <p className="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em]">© 2026 Tahanaout Poultry.</p>
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-orange-500/10 rounded-full blur-[150px] -mr-[20vw] -mt-[20vw]" />
-        <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-emerald-500/10 rounded-full blur-[150px] -ml-[20vw] -mb-[20vw]" />
+        {/* Improved Decorative elements that won't cause horizontal overflow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[150px] translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px] -translate-x-1/2 translate-y-1/2" />
       </footer>
-      {/* Tailwind keyframes for the scroll hint */}
-      <style jsx global>{`
-        @keyframes scroll-hint {
-          0% { transform: translateY(-100%); }
-          100% { transform: translateY(200%); }
-        }
-      `}</style>
     </main>
   );
 }
