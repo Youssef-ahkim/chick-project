@@ -151,7 +151,7 @@ export default function ProductsPage() {
 
     return (
         <main ref={containerRef} className="bg-white min-h-screen selection:bg-orange-600 selection:text-white overflow-hidden relative">
-            
+
             {/* New "Editorial" Hero Section - Now Full Screen to fix unwanted bottom gap */}
             <section className="hero-section relative h-screen flex items-center overflow-hidden bg-slate-950">
                 <div className="absolute inset-0 z-0 hero-bg-parallax">
@@ -174,12 +174,12 @@ export default function ProductsPage() {
                             <span className="w-2.5 h-2.5 bg-orange-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(249,115,22,1)]" />
                             Premium Selection 2026
                         </div>
-                        <h1 className="text-8xl md:text-[14rem] font-black text-white tracking-tighter leading-[0.75] uppercase mb-16">
+                        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-black text-white tracking-tighter leading-[0.8] uppercase mb-10 md:mb-12">
                             THE <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-300 italic">Finest.</span>
                         </h1>
-                        <p className="text-white/80 text-xl md:text-3xl font-medium max-w-3xl leading-relaxed italic border-l-8 border-orange-500 pl-10">
-                            &quot;Curated organic poultry from the legendary snow-capped ridges of the Atlas Mountains.&quot;
+                        <p className="text-white/70 text-lg md:text-2xl font-medium max-w-2xl leading-relaxed italic border-l-4 border-orange-500 pl-6 md:pl-8">
+                            &quot;Curated organic poultry from the legendary ridges of the Atlas Mountains.&quot;
                         </p>
                     </div>
                 </div>
@@ -193,10 +193,10 @@ export default function ProductsPage() {
 
             {/* Content Area - Smooth Transition */}
             <div className="bg-white relative z-10 pt-40 pb-40">
-                
+
                 {/* Subtle Section Shadow to break the stark white */}
                 <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-slate-50 to-transparent pointer-events-none" />
-                
+
                 {/* Floating Elements */}
                 <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
                     <div className="absolute top-[10%] -left-20 w-[600px] h-[600px] bg-orange-100/30 rounded-full blur-[120px] opacity-60" />
@@ -204,7 +204,7 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-                    
+
                     {/* Balanced Utility Bar */}
                     <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
                         <div className="space-y-4">
@@ -217,7 +217,7 @@ export default function ProductsPage() {
                                 <span className="text-slate-400 italic font-medium">From Farm</span>
                             </h2>
                         </div>
-                        
+
                         <div className="w-full md:w-auto flex flex-col items-end gap-6">
                             <div className="flex bg-white shadow-xl p-2 rounded-3xl border border-slate-100 gap-2">
                                 {categories.map((cat) => (
@@ -281,7 +281,7 @@ export default function ProductsPage() {
             <footer className="bg-slate-950 text-white py-40 relative overflow-hidden px-6 md:px-12 lg:px-16">
                 <div className="max-w-7xl mx-auto relative z-10 text-center space-y-16">
                     <h2 className="text-7xl md:text-[10rem] font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-wrap">Real food <br /><span className="text-orange-500 italic">Today.</span></h2>
-                    
+
                     <div className="mt-40 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 bg-orange-600 rounded-2xl flex items-center justify-center">

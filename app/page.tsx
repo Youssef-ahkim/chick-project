@@ -150,8 +150,8 @@ export default function Home() {
 
         <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-32 md:pt-40">
           <div className="max-w-3xl hero-content space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-orange-200 text-sm font-semibold uppercase tracking-widest">
-              <Star className="w-4 h-4 fill-orange-400 text-orange-400" />
+            <div className="inline-flex items-center gap-3 px-6 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-orange-200 text-[10px] font-black uppercase tracking-[0.4em] mb-12 shadow-2xl">
+              <span className="w-2.5 h-2.5 bg-orange-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(249,115,22,1)]" />
               Premium Farm-To-Table Quality
             </div>
             <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter uppercase">
