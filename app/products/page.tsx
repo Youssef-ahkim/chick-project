@@ -103,12 +103,18 @@ export default function ProductsPage() {
         requestAnimationFrame(raf);
 
         const ctx = gsap.context(() => {
+            // Set global defaults for GSAP
+            gsap.defaults({
+                ease: "power2.out",
+                duration: 0.8,
+                force3D: true,
+            });
+
             // New Hero Animation
             gsap.from(".hero-text", {
-                y: 100,
-                opacity: 0,
-                duration: 1.5,
-                ease: "power4.out",
+                y: 60,
+                autoAlpha: 0,
+                duration: 1.2,
                 delay: 0.5
             });
 
@@ -117,22 +123,21 @@ export default function ProductsPage() {
                     trigger: ".hero-section",
                     start: "top top",
                     end: "bottom top",
-                    scrub: true
+                    scrub: 0.5,
+                    lazy: true,
                 },
-                y: 100,
+                y: 60,
                 ease: "none"
             });
 
             // Card Entrance
             gsap.from(".product-card", {
-                opacity: 0,
-                y: 40,
-                stagger: 0.1,
-                duration: 1,
-                ease: "power2.out",
+                autoAlpha: 0,
+                y: 30,
+                stagger: 0.08,
                 scrollTrigger: {
                     trigger: ".products-grid",
-                    start: "top 85%",
+                    start: "top 90%",
                 }
             });
         }, containerRef);
@@ -199,8 +204,8 @@ export default function ProductsPage() {
 
                 {/* Floating Elements */}
                 <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                    <div className="absolute top-[10%] -left-20 w-[600px] h-[600px] bg-orange-100/30 rounded-full blur-[120px] opacity-60" />
-                    <div className="absolute top-[40%] -right-40 w-[800px] h-[800px] bg-emerald-50/40 rounded-full blur-[140px] opacity-40" />
+                <div className="absolute top-[10%] -left-20 w-[600px] h-[600px] bg-orange-100/30 rounded-full blur-[80px] opacity-60" style={{ transform: 'translateZ(0)' }} />
+                    <div className="absolute top-[40%] -right-40 w-[800px] h-[800px] bg-emerald-50/40 rounded-full blur-[90px] opacity-40" style={{ transform: 'translateZ(0)' }} />
                 </div>
 
                 <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">

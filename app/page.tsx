@@ -37,14 +37,19 @@ export default function Home() {
     requestAnimationFrame(raf);
 
     const ctx = gsap.context(() => {
+      // Set global defaults for GSAP
+      gsap.defaults({
+        ease: "power2.out",
+        duration: 0.8,
+        force3D: true,
+      });
+
       // 2. Hero Content Animations
       const heroTl = gsap.timeline();
       heroTl.from(".hero-content > *", {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power2.out",
+        y: 40,
+        autoAlpha: 0,
+        stagger: 0.08,
         delay: 0.3
       });
 
@@ -54,9 +59,10 @@ export default function Home() {
           trigger: heroRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: true
+          scrub: 0.5,
+          lazy: true,
         },
-        y: 80,
+        y: 50,
         ease: "none"
       });
 
@@ -64,25 +70,22 @@ export default function Home() {
       gsap.from(".reveal-section", {
         scrollTrigger: {
           trigger: ".reveal-section",
-          start: "top 85%",
+          start: "top 90%",
+          toggleActions: "play none none none",
         },
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: "power2.out"
+        autoAlpha: 0,
+        y: 30,
       });
 
       // 5. Product Cards Staggered Entry
       gsap.from(".product-card", {
         scrollTrigger: {
           trigger: productsRef.current,
-          start: "top 75%",
+          start: "top 80%",
         },
-        opacity: 0,
-        y: 50,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out"
+        autoAlpha: 0,
+        y: 30,
+        stagger: 0.08,
       });
 
       // 6. Floating elements parallax
@@ -91,9 +94,10 @@ export default function Home() {
           trigger: featuredRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: true
+          scrub: 0.5,
+          lazy: true,
         },
-        y: -50,
+        y: -30,
         ease: "none"
       });
 
@@ -101,25 +105,22 @@ export default function Home() {
       gsap.from(".feature-item", {
         scrollTrigger: {
           trigger: featuredRef.current,
-          start: "top 80%",
+          start: "top 85%",
         },
-        y: 30,
-        opacity: 0,
-        stagger: 0.08,
-        duration: 0.6,
-        ease: "power2.out"
+        y: 20,
+        autoAlpha: 0,
+        stagger: 0.05,
+        duration: 0.5,
       });
 
       // 8. Quality Section Highlight
       gsap.from(".quality-card", {
         scrollTrigger: {
           trigger: ".quality-card",
-          start: "top 90%",
+          start: "top 95%",
         },
-        scale: 0.95,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out"
+        scale: 0.98,
+        autoAlpha: 0,
       });
     }, containerRef);
 
@@ -247,7 +248,7 @@ export default function Home() {
             {/* Quality Section Highlight */}
             <div className="quality-card lg:block hidden">
               <div className="aspect-[3/4] bg-emerald-950 rounded-[2.5rem] p-12 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl">
-                <div className="absolute -right-20 -top-20 w-80 h-80 bg-emerald-700/20 rounded-full blur-[100px] group-hover:scale-150 transition-transform duration-1000" />
+                <div className="absolute -right-20 -top-20 w-80 h-80 bg-emerald-700/20 rounded-full blur-[60px] group-hover:scale-150 transition-transform duration-1000" style={{ transform: 'translateZ(0)' }} />
                 <div className="space-y-8 relative z-10">
                   <div
                     className="w-20 h-20 bg-white/5 backdrop-blur-xl rounded-[2rem] flex items-center justify-center border border-white/10"
@@ -280,7 +281,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             <div className="relative">
-              <div className="absolute -left-20 -top-20 w-96 h-96 bg-orange-100/40 rounded-full blur-[120px] -z-10" />
+              <div className="absolute -left-20 -top-20 w-96 h-96 bg-orange-100/40 rounded-full blur-[80px] -z-10" style={{ transform: 'translateZ(0)' }} />
               <div className="relative aspect-square rounded-[4rem] overflow-hidden shadow-4xl border-[16px] border-slate-50">
                 <Image
                   src="/hero.png"
@@ -370,8 +371,8 @@ export default function Home() {
         </div>
 
         {/* Improved Decorative elements that won't cause horizontal overflow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[150px] translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px] -translate-x-1/2 translate-y-1/2" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2" style={{ transform: 'translateZ(0)' }} />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[80px] -translate-x-1/2 translate-y-1/2" style={{ transform: 'translateZ(0)' }} />
       </footer>
     </main>
   );
