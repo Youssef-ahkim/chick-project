@@ -155,7 +155,7 @@ export default function ProductsPage() {
     });
 
     return (
-        <main ref={containerRef} className="bg-white min-h-screen selection:bg-orange-600 selection:text-white overflow-hidden relative">
+        <main ref={containerRef} className="bg-background min-h-screen selection:bg-orange-600 selection:text-white overflow-hidden relative">
 
             {/* New "Editorial" Hero Section - Now Full Screen to fix unwanted bottom gap */}
             <section className="hero-section relative h-screen flex items-center overflow-hidden bg-slate-950">
@@ -164,8 +164,9 @@ export default function ProductsPage() {
                         src="/products/new-hero.png"
                         alt="High Altitude Farm Tahanaout"
                         fill
-                        className="object-cover scale-110"
+                        className="object-cover"
                         priority
+                        quality={100}
                     />
                     {/* Modern Overlay Treatment */}
                     <div className="absolute inset-0 bg-slate-950/20" />
@@ -197,15 +198,13 @@ export default function ProductsPage() {
             </section>
 
             {/* Content Area - Smooth Transition */}
-            <div className="bg-white relative z-10 pt-40 pb-40">
+            <div className="bg-background relative z-10 pt-40 pb-40">
 
                 {/* Subtle Section Shadow to break the stark white */}
-                <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-slate-50 to-transparent pointer-events-none" />
+                <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-background to-transparent pointer-events-none" />
 
-                {/* Floating Elements */}
+                {/* Floating Elements removed */}
                 <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                <div className="absolute top-[10%] -left-20 w-[600px] h-[600px] bg-orange-100/30 rounded-full blur-[80px] opacity-60" style={{ transform: 'translateZ(0)' }} />
-                    <div className="absolute top-[40%] -right-40 w-[800px] h-[800px] bg-emerald-50/40 rounded-full blur-[90px] opacity-40" style={{ transform: 'translateZ(0)' }} />
                 </div>
 
                 <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
@@ -231,7 +230,7 @@ export default function ProductsPage() {
                                         onClick={() => setActiveCategory(cat)}
                                         className={`px-8 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeCategory === cat
                                             ? 'bg-slate-950 text-white shadow-2xl'
-                                            : 'text-slate-400 hover:text-slate-950 hover:bg-slate-50'
+                                            : 'text-slate-400 hover:text-slate-950 hover:bg-background'
                                             }`}
                                     >
                                         {cat}

@@ -21,7 +21,7 @@ function Navbar() {
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'Products', href: '/products' },
-        { name: 'Farm Story', href: '#' },
+        { name: 'Farm Story', href: '/farm-story' },
         { name: 'Quality', href: '#' },
     ];
 
@@ -30,8 +30,8 @@ function Navbar() {
             <nav className="w-full max-w-[1400px] mx-auto px-6 flex justify-center">
                 <div className={`w-full transition-all duration-700 ease-in-out rounded-[2.5rem] flex items-center justify-between px-8 py-4 ${
                     isScrolled 
-                    ? 'bg-white/80 backdrop-blur-lg shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/40' 
-                    : (pathname === '/products' || pathname === '/' ? 'bg-white/10 backdrop-blur-md border border-white/20' : 'bg-white/20 backdrop-blur-md border border-white/20')
+                    ? 'bg-background/80 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-black/5' 
+                    : (pathname === '/products' || pathname === '/' || pathname === '/farm-story' ? 'bg-black/10 backdrop-blur-xl border border-white/10' : 'bg-background/20 backdrop-blur-xl border border-black/5')
                 }`} style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', willChange: 'backdrop-filter, padding, background-color' }}>
                     
                     {/* Logo */}

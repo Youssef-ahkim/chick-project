@@ -131,7 +131,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main ref={containerRef} className="bg-white min-h-screen relative overflow-x-hidden">
+    <main ref={containerRef} className="bg-background min-h-screen relative overflow-x-hidden">
 
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden bg-slate-900">
@@ -142,6 +142,7 @@ export default function Home() {
             fill
             className="object-cover hero-image"
             priority
+            quality={100}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-slate-950/20" />
@@ -167,19 +168,20 @@ export default function Home() {
                 Shop Our Products
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <button
+              <Link
+                href="/farm-story"
                 className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-2xl transition-all border border-white/30"
                 style={{ transform: 'translateZ(0)' }}
               >
                 Our Story
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Products Grid */}
-      <section ref={productsRef} className="py-32 bg-slate-50 relative overflow-hidden reveal-section">
+      <section ref={productsRef} className="py-32 bg-background relative overflow-hidden reveal-section">
         <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="space-y-4">
@@ -248,7 +250,8 @@ export default function Home() {
             {/* Quality Section Highlight */}
             <div className="quality-card lg:block hidden">
               <div className="aspect-[3/4] bg-emerald-950 rounded-[2.5rem] p-12 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl">
-                <div className="absolute -right-20 -top-20 w-80 h-80 bg-emerald-700/20 rounded-full blur-[60px] group-hover:scale-150 transition-transform duration-1000" style={{ transform: 'translateZ(0)' }} />
+                {/* Shadow instead of blob */}
+                <div className="absolute -right-20 -top-20 w-40 h-40 bg-orange-600/5 rounded-full blur-[40px] group-hover:scale-150 transition-transform duration-1000" style={{ transform: 'translateZ(0)' }} />
                 <div className="space-y-8 relative z-10">
                   <div
                     className="w-20 h-20 bg-white/5 backdrop-blur-xl rounded-[2rem] flex items-center justify-center border border-white/10"
@@ -277,11 +280,11 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section ref={featuredRef} className="py-40 bg-white relative overflow-hidden px-6 md:px-12 lg:px-16 reveal-section">
+      <section ref={featuredRef} className="py-40 bg-background relative overflow-hidden px-6 md:px-12 lg:px-16 reveal-section">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             <div className="relative">
-              <div className="absolute -left-20 -top-20 w-96 h-96 bg-orange-100/40 rounded-full blur-[80px] -z-10" style={{ transform: 'translateZ(0)' }} />
+              {/* Removed blob */}
               <div className="relative aspect-square rounded-[4rem] overflow-hidden shadow-4xl border-[16px] border-slate-50">
                 <Image
                   src="/hero.png"
@@ -371,8 +374,7 @@ export default function Home() {
         </div>
 
         {/* Improved Decorative elements that won't cause horizontal overflow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2" style={{ transform: 'translateZ(0)' }} />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[80px] -translate-x-1/2 translate-y-1/2" style={{ transform: 'translateZ(0)' }} />
+        {/* Removed blobs */}
       </footer>
     </main>
   );
