@@ -55,27 +55,17 @@ export default function FarmStoryPage() {
             });
 
             // Reveal Sections
-            const revealSections = document.querySelectorAll(".reveal-section");
-            revealSections.forEach((section) => {
+            const revealSections = containerRef.current?.querySelectorAll(".reveal-section");
+            revealSections?.forEach((section) => {
                 gsap.from(section, {
                     scrollTrigger: {
                         trigger: section,
-                        start: "top 85%",
+                        start: "top 90%",
                     },
-                    y: 40,
+                    y: 30,
                     autoAlpha: 0,
+                    clearProps: "all"
                 });
-            });
-
-            // Staggered items
-            gsap.from(".pillar-item", {
-                scrollTrigger: {
-                    trigger: ".pillars-grid",
-                    start: "top 80%",
-                },
-                y: 30,
-                autoAlpha: 0,
-                stagger: 0.1,
             });
 
         }, containerRef);
@@ -122,7 +112,7 @@ export default function FarmStoryPage() {
             </section>
 
             {/* The Story Section - Zero White approach */}
-            <section className="py-40 bg-background relative z-10">
+            <section className="py-24 bg-background relative z-10">
                 <div className="container mx-auto px-6 md:px-12 lg:px-20">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                         <div className="reveal-section space-y-10">
@@ -165,14 +155,14 @@ export default function FarmStoryPage() {
             </section>
 
             {/* Pillars Grid - Replaced "Cloudy" elements with structured design */}
-            <section className="py-40 bg-background relative overflow-hidden">
+            <section className="py-24 bg-background relative overflow-hidden">
                 <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-32 reveal-section">
+                    <div className="text-center max-w-3xl mx-auto mb-20 reveal-section">
                         <span className="text-orange-600 font-black text-xs uppercase tracking-[0.4em]">Our Philosophy</span>
                         <h2 className="text-5xl md:text-8xl font-black text-slate-950 tracking-tighter uppercase mt-6">THREE PILLARS OF <br /><span className="text-orange-600 italic">Integrity.</span></h2>
                     </div>
 
-                    <div className="pillars-grid grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div className="pillars-grid grid grid-cols-1 md:grid-cols-3 gap-12 reveal-section">
                         {[
                             {
                                 icon: <Heart className="w-10 h-10" />,
@@ -211,7 +201,7 @@ export default function FarmStoryPage() {
             </section>
 
             {/* Bottom Section - Crystal Clear */}
-            <section className="py-40 bg-background">
+            <section className="py-24 bg-background">
                 <div className="container mx-auto px-6 md:px-12 lg:px-20">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <div className="reveal-section h-[600px] relative rounded-[3.5rem] overflow-hidden group shadow-4xl border-[12px] border-black/5">
@@ -253,7 +243,7 @@ export default function FarmStoryPage() {
             </section>
 
             {/* Bottom CTA */}
-            <footer className="bg-slate-950 text-white py-40 relative overflow-hidden px-6 md:px-12 lg:px-20">
+            <footer className="bg-slate-950 text-white py-24 relative overflow-hidden px-6 md:px-12 lg:px-20">
                 <div className="max-w-7xl mx-auto relative z-10 text-center space-y-16">
                     <h2 className="text-7xl md:text-[10rem] font-black leading-[0.8] tracking-tighter uppercase">Taste the <br /><span className="text-orange-500 italic">Tradition.</span></h2>
                     <p className="text-2xl text-slate-400 font-medium max-w-2xl mx-auto italic">&quot;Each purchase supports our mission to keep Moroccan agriculture clean, healthy, and ethical.&quot;</p>

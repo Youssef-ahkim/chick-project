@@ -22,7 +22,7 @@ function Navbar() {
         { name: 'Home', href: '/' },
         { name: 'Products', href: '/products' },
         { name: 'Farm Story', href: '/farm-story' },
-        { name: 'Quality', href: '#' },
+        { name: 'Quality', href: '/quality' },
     ];
 
     return (

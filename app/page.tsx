@@ -181,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products Grid */}
-      <section ref={productsRef} className="py-32 bg-background relative overflow-hidden reveal-section">
+      <section ref={productsRef} className="py-24 bg-background relative overflow-hidden reveal-section">
         <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="space-y-4">
@@ -248,8 +248,8 @@ export default function Home() {
             </div>
 
             {/* Quality Section Highlight */}
-            <div className="quality-card lg:block hidden">
-              <div className="aspect-[3/4] bg-emerald-950 rounded-[2.5rem] p-12 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl">
+            <Link href="/quality" className="quality-card lg:block hidden">
+              <div className="aspect-[3/4] bg-emerald-950 rounded-[2.5rem] p-12 flex flex-col justify-between text-white relative overflow-hidden group shadow-2xl cursor-pointer">
                 {/* Shadow instead of blob */}
                 <div className="absolute -right-20 -top-20 w-40 h-40 bg-orange-600/5 rounded-full blur-[40px] group-hover:scale-150 transition-transform duration-1000" style={{ transform: 'translateZ(0)' }} />
                 <div className="space-y-8 relative z-10">
@@ -274,15 +274,15 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section ref={featuredRef} className="py-40 bg-background relative overflow-hidden px-6 md:px-12 lg:px-16 reveal-section">
+      <section ref={featuredRef} className="py-24 bg-background relative overflow-hidden px-6 md:px-12 lg:px-16 reveal-section">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <div className="relative">
               {/* Removed blob */}
               <div className="relative aspect-square rounded-[4rem] overflow-hidden shadow-4xl border-[16px] border-slate-50">

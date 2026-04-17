@@ -198,7 +198,7 @@ export default function ProductsPage() {
             </section>
 
             {/* Content Area - Smooth Transition */}
-            <div className="bg-background relative z-10 pt-40 pb-40">
+            <div className="bg-background relative z-10 pt-24 pb-24">
 
                 {/* Subtle Section Shadow to break the stark white */}
                 <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-background to-transparent pointer-events-none" />
