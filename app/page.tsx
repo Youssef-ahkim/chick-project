@@ -60,7 +60,6 @@ export default function Home() {
           start: "top top",
           end: "bottom top",
           scrub: 0.5,
-          lazy: true,
         },
         y: 50,
         ease: "none"
@@ -95,7 +94,6 @@ export default function Home() {
           start: "top bottom",
           end: "bottom top",
           scrub: 0.5,
-          lazy: true,
         },
         y: -30,
         ease: "none"

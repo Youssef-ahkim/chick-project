@@ -124,7 +124,6 @@ export default function ProductsPage() {
                     start: "top top",
                     end: "bottom top",
                     scrub: 0.5,
-                    lazy: true,
                 },
                 y: 60,
                 ease: "none"
